@@ -1,0 +1,45 @@
+.quiz-section {
+  margin-top: 50px;
+  padding: 20px;
+  border-top: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.opciones-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.opciones-container button {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  padding: 10px;
+  background-color: pink;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.opciones-container button:hover {
+  background-color: rgb(255, 190, 205);
+}
+/*para hacerlo flotar a la encuneta */
+.container-quiz {
+  background-color: white;
+  margin: 10% 25%;
+  border-radius: 40px;
+  box-shadow: 0 8px 25px rgba(255, 75, 216, 0.119);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto flotante al pasar el mouse */
+.container-quiz:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}

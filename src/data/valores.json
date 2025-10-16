@@ -1,0 +1,42 @@
+[
+  {
+    "emoji": "🤝",
+    "titulo": "Creatividad",
+    "descripcion": "La destreza por generar ideas originales aplicando la tecnología para nuevas formas de comunicar y conectar con las emociones de las personas, un interés en explorar herramientas digitales.",
+    "frase": "✨ “La creatividad es transformar ideas en mensajes, proyectos o soluciones que inspiran y generan un impacto real en las personas.”"
+  },
+  {
+    "emoji": "💡",
+    "titulo": "Autonomía",
+    "descripcion": "Búsqueda constante de nuevos retos e interés por seguir creciendo.",
+    "frase": "💡 “Aprender por mí mismo es mi mejor herramienta de crecimiento.”"
+  },
+  {
+    "emoji": "🌱",
+    "titulo": "Resiliencia",
+    "descripcion": "La capacidad de enfrentar retos y seguir creciendo: desde reinventar la forma de comunicar con creatividad, hasta aprender programación de manera autónoma.",
+    "frase": "🌱 “Cada día es una oportunidad para ser mejores que ayer.”"
+  },
+  {
+    "emoji": "🔗",
+    "titulo": "Compromiso",
+    "descripcion": "Juntas somos más fuertes. Aplicamos conocimientos y habilidades no solo para crecer personalmente, sino para desarrollar soluciones innovadoras y efectivas.",
+    "frase": "🤝 “Cumplir los objetivos dando lo mejor.”"
+  },
+  {
+    "emoji": "🌍",
+    "titulo": "Impacto Social Positivo",
+    "descripcion": "Usamos nuestras habilidades para el bien. Priorizamos proyectos que generen un impacto positivo en la sociedad. Creemos que la tecnología puede ser una herramienta poderosa para crear un mundo más justo y equitativo.",
+    "frase": "🌍 “Pequeños cambios en el código pueden generar grandes cambios en el mundo.”"
+  },
+  {
+    "titulo": "Nuestra Misión",
+    "descripcion": "Nuestra misión es crear soluciones digitales innovadoras que inspiren y generen un impacto positivo en la sociedad, conectando personas y potenciando sus ideas a través de la tecnología.",
+    "frase": "“Buscamos transformar desafíos en oportunidades, siempre con responsabilidad y pasión por lo que hacemos.”"
+  },
+  {
+    "titulo": "Nuestra Visión",
+    "descripcion": "Nuestra visión es ser referentes en innovación tecnológica, reconocidos por nuestro impacto social y por impulsar un futuro sostenible en el que la creatividad y la tecnología vayan de la mano.",
+    "frase": "“Queremos ser el puente entre la tecnología y las personas, generando un cambio real en sus vidas.”"
+  }
+]

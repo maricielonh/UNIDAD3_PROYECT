@@ -1,0 +1,118 @@
+
+
+.letra {
+     font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal ;
+  color: rgb(86, 84, 94);
+    
+
+}
+
+.body {
+    background-color: rgb(247, 218, 223);
+}
+
+.letra2 {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 523;
+    font-style: normal;
+    font-size: 22px;
+    padding: 0px 150px 0px 150px;
+
+
+}
+
+.imagen {
+    
+    border-radius: 50px;
+    margin-top: 5%;
+}
+
+.tamaño {
+    font-size: 100px;
+}
+
+.hijo {
+    
+    font-size: 20px;
+}
+.cartilla{
+    font-size: 20px;
+    background-color: rgb(255, 253, 255);
+   
+    
+}
+.bode   {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+}
+.bode:hover {
+    transform: translateY(-10px); /* Se eleva */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+.imagen {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;/* el movimiento sera suave */
+    
+  }
+
+  .imagen:hover {
+    transform: translateY(-10px); /* La levanta hacia arriba */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra más grande */
+  }
+
+.banner {
+    font-size: 50px;
+     font-family: "Caprasimo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.colorbanner    {
+   
+     font-size: 50px;
+     font-family: "Caprasimo", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: rgb(247, 140, 158);
+}
+
+.nose    {
+   
+        max-width: 650px;
+        margin: 0 auto; /* Centra el carrusel */
+    
+}
+
+.present   {
+    border: 5px solid rgb(255, 255, 255);
+    background-color:  rgb(255, 243, 249);
+ border-radius: 30px;
+ margin: 10px 70px auto;
+ padding: 5px;
+}
+.present2   {
+     border: 5px solid rgb(255, 255, 255);
+    background-color:  rgb(255, 243, 249);
+ border-radius: 50px;
+ margin: 10px 70px auto;
+ padding: 5px;
+}
+
+.tamaño2 {
+    font-size: 50px;
+}
+
+.present3   {
+     border: 5px solid rgb(255, 255, 255);
+    background-color:  rgb(255, 243, 249);
+ border-radius: 50px;
+ margin: 10px 70px auto;
+ padding: 5px;
+}
+.NOSObody {
+
+  background-color: rgb(247, 218, 223);
+  min-height: 100vh; 
+
+}

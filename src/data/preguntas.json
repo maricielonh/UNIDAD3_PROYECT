@@ -1,0 +1,53 @@
+[
+  {
+    "pregunta": "¿Cuántas chicas participaron en la creación de la página web?",
+    "opciones": ["3", "4", "5", "6", "2"],
+    "puntaje": [0, 0, 5, 0, 0]
+  },
+  {
+    "pregunta": "¿Cuál es el propósito principal de la página web?",
+    "opciones": ["Vender productos", "Blog de viajes", "Expresión creativa", "Juegos en línea", "Red social"],
+    "puntaje": [0, 0, 5, 0, 0]
+  },
+  {
+    "pregunta": "¿Qué colores predominan en el diseño de la página?",
+    "opciones": ["Rojo y negro", "Verde y azul", "Rosa y blanco", "Naranja y marrón", "Gris y celeste"],
+    "puntaje": [0, 0, 5, 0, 0]
+  },
+  {
+    "pregunta": "¿Qué sección NO está incluida en la página?",
+    "opciones": ["Inicio", "Sobre nosotras", "Contacto", "Galería", "Calendario escolar"],
+    "puntaje": [0, 0, 0, 0, 5]
+  },
+  {
+    "pregunta": "¿Qué lenguaje de programación se usó principalmente?",
+    "opciones": ["Python", "Java", "HTML/CSS/JS", "C++", "Ruby"],
+    "puntaje": [0, 0, 5, 0, 0]
+  },
+  {
+    "pregunta": "¿Qué día se publicó la página web?",
+    "opciones": ["1 de enero", "14 de febrero", "16 de septiembre", "15 de septiembre", "25 de diciembre"],
+    "puntaje": [0, 0, 5, 0, 0]
+  },
+  {
+    "pregunta": "¿Cuál es el nombre del grupo de las chicas?",
+    "opciones": ["CodeGirls", "WebStars", "ChicasTech", "Power5", "FullStackers"],
+    "puntaje": [0, 0, 0, 0, 5]
+  },
+  {
+    "pregunta": "¿Qué contenido multimedia incluye la página?",
+    "opciones": ["Solo texto", "Fotos y textos", "Solo videos", "Solo fotos", "Solo música"],
+    "puntaje": [0, 5, 0, 0, 0]
+  },
+  {
+    "pregunta": "¿Qué elemento destaca en la página de inicio?",
+    "opciones": ["Presentación", "Formulario de contacto", "Mapa del sitio", "Animaciones 3D", "Lista de compras"],
+    "puntaje": [5, 0, 0, 0, 0]
+  },
+  {
+    "pregunta": "¿Qué tipo de fuente usaron en los títulos?",
+    "opciones": ["Comic Sans", "Roboto", "Arial", "Times New Roman", "Google fonts"],
+    "puntaje": [0, 0, 0, 0, 5]
+  }
+]
+
