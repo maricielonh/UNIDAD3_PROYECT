@@ -9,39 +9,50 @@ import LOGO from "./assets/LOGO.jpg";
 import './ALEJANDRA1.css';
 import { Link } from "react-router-dom";
 import Quiz from "./Quiz";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 
 export default function Nosotras() {
     return (
         <>
+
             <div className="NOSObody">
+
                 <div>
-                    <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
-                        <div className="container-fluid">
-                            <a className="navbar-brand NOSObanner" href="#">FULL STACKERS</a>
-                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                                <ul className="navbar-nav ms-auto fs-4">
-                                    <li className="nav-item">
-                                        <Link className="nav-link active" to="/">INICIO</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/Nosotras">NOSOTRAS SOMOS</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/Valores">NUESTROS VALORES</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/Contacto">CONTACTO</Link>
-                                    </li>
-                                </ul>
+                    <div>
+                        <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
+                            <div className="container-fluid">
+                                <Link className="navbar-brand NOSObanner" to="/">FULL STACKERS</Link>
+                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span className="navbar-toggler-icon"></span>
+                                </button>
+                                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                                    <ul className="navbar-nav ms-auto fs-4">
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" to="/">INICIO</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Nosotras">NOSOTRAS SOMOS</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Valores">NUESTROS VALORES</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Contacto">CONTACTO</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Login">Dashboard</Link>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
 
                 <div className="NOSOcontainer micontenedor">
@@ -170,7 +181,7 @@ export default function Nosotras() {
                         <div className="metodo-box movible active-box">
                             <h5>👁️ UX/UI Design</h5>
                             <p>
-                               Diseñamos interfaces enfocadas en la experiencia del usuario y usabilidad.Nos aseguramos de que cada diseño sea intuitivo, accesible, responsivo y alineado con los objetivos del negocio y las expectativas del usuario final.
+                                Diseñamos interfaces enfocadas en la experiencia del usuario y usabilidad.Nos aseguramos de que cada diseño sea intuitivo, accesible, responsivo y alineado con los objetivos del negocio y las expectativas del usuario final.
                             </p>
                         </div>
                     </div>
@@ -189,7 +200,7 @@ export default function Nosotras() {
                         <h5 className="NOSOfrase">"Tu visión. Nuestro stack. Un solo equipo."</h5>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

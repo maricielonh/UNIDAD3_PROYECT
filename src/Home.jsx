@@ -1,44 +1,82 @@
+import { useNavigate } from "react-router-dom";
 import carusel1 from './assets/carusel1.jpg'
 import carusel2 from './assets/carusel2.jpg'
 import './estilos.css'
 import { Link } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './pages/Login';
+import { signOut } from "firebase/auth";
+import "./firebase";
 
 export default function Home() {
+
+    const navigate = useNavigate(); // <-- hook para redireccionar
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            alert("👋 Sesión cerrada");
+            navigate("/login"); // <-- redirige al login
+        } catch (error) {
+            console.error("Error al cerrar sesión:", error);
+            alert("❌ No se pudo cerrar sesión");
+        }
+    };
+
+
+
+
+
     return (
         <>
-            
+
             <div className='NOSObody'>
                 {/* BANNER */}
 
-                <div>
-                    <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
-                        <div className="container-fluid">
-                            <a className="navbar-brand banner" href="#">FULL STACKERS</a>
-                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                                <ul className="navbar-nav ms-auto fs-4">
-                                    <li className="nav-item">
-                                        <Link className="nav-link active" to="/">INICIO</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/Nosotras">NOSOTRAS SOMOS</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/Valores">NUESTROS VALORES</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/Contacto">CONTACTO</Link>
-                                    </li>
-                                </ul>
+                <div >
+                    <div>
+                        <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
+                            <div className="container-fluid">
+                                <Link className="navbar-brand NOSObanner" to="/">FULL STACKERS</Link>
+                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span className="navbar-toggler-icon"></span>
+                                </button>
+                                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                                    <ul className="navbar-nav ms-auto fs-4">
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" to="/">INICIO</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Nosotras">NOSOTRAS SOMOS</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Valores">NUESTROS VALORES</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Contacto">CONTACTO</Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Login">Dashboard</Link>
+                                        </li>
+
+
+
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
+
+
+
+
+
+
 
 
                 <div >
@@ -53,7 +91,7 @@ export default function Home() {
                             visión,
                             talento y determinación femenina.</p>
                     </div>
-                     {/* CARRUSEL */}
+                    {/* CARRUSEL */}
 
                     <div id="carouselExample" className="carousel slide nose">
                         <div className="carousel-inner">
@@ -97,7 +135,7 @@ export default function Home() {
 
                     <div className="container my-1 row g-4 ">
                         <h2 className="letra text-center tamaño2">CONOCENOS</h2>
-                         {/* MIS CARTILLAS */}
+                        {/* MIS CARTILLAS */}
 
                         <div className="col-md-4 ">
                             <div className="card h-100 shadow-sm bode ">
@@ -185,6 +223,7 @@ export default function Home() {
                                 <p>Innovando el presente, programando el futuro.</p>
                             </i>
                         </div>
+
 
 
 

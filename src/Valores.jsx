@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import valoresData from "./data/valores.json";
 import "./Maricielo.css";
-import MIVI from "./MIVI";
+
 
 
 
@@ -15,7 +15,7 @@ export default function Valores() {
         <div>
           <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
             <div className="container-fluid">
-              <a className="navbar-brand NOSObanner" href="#">FULL STACKERS</a>
+              <Link className="navbar-brand NOSObanner" to="/">FULL STACKERS</Link>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -34,6 +34,9 @@ export default function Valores() {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/Contacto">CONTACTO</Link>
+                  </li>
+                  <li className="nav-item">
+                      <Link className="nav-link" to="/Login">Dashboard</Link>
                   </li>
                 </ul>
               </div>
@@ -67,10 +70,7 @@ export default function Valores() {
           </div>
         </div>
       </section>
-
-      <div>
-          <MIVI/>
-      </div>
+      
 
     
 

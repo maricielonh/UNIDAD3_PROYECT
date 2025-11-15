@@ -14,7 +14,7 @@ export default function Contacto() {
           <div>
             <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
               <div className="container-fluid">
-                <a className="navbar-brand NOSObanner" href="#">FULL STACKERS</a>
+                <Link className="navbar-brand NOSObanner" to="/">FULL STACKERS</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                   aria-label="Toggle navigation">
@@ -33,6 +33,9 @@ export default function Contacto() {
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/Contacto">CONTACTO</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/Login">Dashboard</Link>
                     </li>
                   </ul>
                 </div>
@@ -90,7 +93,7 @@ export default function Contacto() {
           </div>
         </section>
 
-        <Formulario/>
+        <Formulario />
 
         <footer className="text-center mt-5 py-3 bg-dark text-white">
           <p>© 2025 Full Stackers. Todos los derechos reservados.</p>

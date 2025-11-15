@@ -1,20 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home";
 import Nosotras from "./Nosotras";
 import Valores from "./Valores";
 import Contacto from "./Contacto";
+import Login from "./pages/Login";
+import { AuthProvider } from "./auth/AuthProvider";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/*  Esta ruta es esencial */}
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Nosotras" element={<Nosotras />} />
-        <Route path="/Valores" element={<Valores />} />
-        <Route path="/Contacto" element={<Contacto />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+
+          {/* Redirige raíz al login */}
+          <Route path="/" element={<Navigate to="/Home" />} />
+
+          {/* Rutas públicas */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Nosotras" element={<Nosotras />} />
+          <Route path="/Valores" element={<Valores />} />
+          <Route path="/Contacto" element={<Contacto />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
