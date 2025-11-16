@@ -13,21 +13,6 @@ export default function Home() {
 
     const navigate = useNavigate(); // <-- hook para redireccionar
 
-    const handleLogout = async () => {
-        try {
-            await signOut(auth);
-            alert("👋 Sesión cerrada");
-            navigate("/login"); // <-- redirige al login
-        } catch (error) {
-            console.error("Error al cerrar sesión:", error);
-            alert("❌ No se pudo cerrar sesión");
-        }
-    };
-
-
-
-
-
     return (
         <>
 

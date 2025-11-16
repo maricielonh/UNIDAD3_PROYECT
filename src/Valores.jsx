@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-
 import React from "react";
 import valoresData from "./data/valores.json";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+
 import "./Maricielo.css";
 
 
@@ -70,13 +74,6 @@ export default function Valores() {
           </div>
         </div>
       </section>
-      
-
-    
-
-
-
-
 
 
     </>

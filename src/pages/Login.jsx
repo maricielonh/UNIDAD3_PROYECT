@@ -1,14 +1,18 @@
 // src/pages/Login.jsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 
-export default function Login() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "../Maricielo.css";
 
+
+export default function Login() {
   const { login, register, resetPassword, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
-  const [mode, setMode] = useState("login"); // "login" | "register" | "reset"
+  const [mode, setMode] = useState("login");
   const [form, setForm] = useState({
     displayName: "",
     email: "",
@@ -55,7 +59,7 @@ export default function Login() {
       } else if (err.code === "auth/invalid-email") {
         msg = "El correo no es válido.";
       } else if (err.code === "auth/weak-password") {
-        msg = "La contraseña es demasiado débil (mínimo 6 caracteres).";
+        msg = "La contraseña es demasiado débil.";
       }
 
       setError(msg);
@@ -78,128 +82,154 @@ export default function Login() {
     }
   };
 
-  // 🔹 AQUÍ SÍ va el return, dentro del componente
   return (
-    <div className="min-h-[80vh] bg-gradient-to-b from-slate-50 to-slate-100 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-white/90 backdrop-blur rounded-2xl shadow-md border border-slate-100 p-6">
-        <h1 className="text-xl font-semibold text-slate-900 mb-2">
-          Acceso a panel administrativo
-        </h1>
-        <p className="text-xs text-slate-500 mb-4">
-          Inicia sesión para gestionar los cursos que se muestran en el catálogo
-          público.
-        </p>
 
-        <div className="flex gap-2 mb-6 text-xs">
-          <button
-            className={`flex-1 py-2 rounded-full border text-center ${mode === "login"
-                ? "bg-slate-900 text-white border-slate-900"
-                : "border-slate-300 text-slate-600"
-              }`}
-            onClick={() => setMode("login")}
-          >
-            Entrar
-          </button>
-          <button
-            className={`flex-1 py-2 rounded-full border text-center ${mode === "register"
-                ? "bg-slate-900 text-white border-slate-900"
-                : "border-slate-300 text-slate-600"
-              }`}
-            onClick={() => setMode("register")}
-          >
-            Crear cuenta
-          </button>
-          <button
-            className={`flex-1 py-2 rounded-full border text-center ${mode === "reset"
-                ? "bg-slate-900 text-white border-slate-900"
-                : "border-slate-300 text-slate-600"
-              }`}
-            onClick={() => setMode("reset")}
-          >
-            Recuperar
-          </button>
+    <div className="NOSObody">
+      <div >
+        <div>
+          <nav className="navbar navbar-expand-lg navbar-dark colorbanner" style={{ height: "100px" }}>
+            <div className="container-fluid">
+              <Link className="navbar-brand NOSObanner" to="/">FULL STACKERS</Link>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul className="navbar-nav ms-auto fs-4">
+                  <li className="nav-item">
+                    <Link className="nav-link active" to="/">INICIO</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/Nosotras">NOSOTRAS SOMOS</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/Valores">NUESTROS VALORES</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/Contacto">CONTACTO</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/Login">Dashboard</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
         </div>
+      </div>
 
-        {error && (
-          <p className="mb-4 text-xs text-rose-600 bg-rose-50 border border-rose-100 rounded-md px-3 py-2">
-            {error}
+
+
+
+
+
+      <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "90vh" }}>
+        <div className="col-12 col-md-6 col-lg-4 p-4 shadow rounded bg-white">
+
+          <h3 className="text-center mb-2">Acceso a panel administrativo</h3>
+          <p className="text-center text-muted small">
+            Inicia sesión para gestionar los cursos del catálogo público.
           </p>
-        )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {mode === "register" && (
-            <div>
-              <label className="block text-xs font-medium text-slate-700 mb-1">
-                Nombre
-              </label>
-              <input
-                name="displayName"
-                value={form.displayName}
-                onChange={onChange}
-                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
+          {/* Botones de modo */}
+          <div className="btn-group w-100 mb-3">
+            <button
+              className={`btn btn-sm ${mode === "login" ? "btn-primary" : "btn-outline-primary"}`}
+              onClick={() => setMode("login")}
+            >
+              Entrar
+            </button>
+            <button
+              className={`btn btn-sm ${mode === "register" ? "btn-primary" : "btn-outline-primary"}`}
+              onClick={() => setMode("register")}
+            >
+              Crear cuenta
+            </button>
+            <button
+              className={`btn btn-sm ${mode === "reset" ? "btn-primary" : "btn-outline-primary"}`}
+              onClick={() => setMode("reset")}
+            >
+              Recuperar
+            </button>
+          </div>
+
+          {error && (
+            <div className="alert alert-danger small py-2">
+              {error}
             </div>
           )}
 
-          <div>
-            <label className="block text-xs font-medium text-slate-700 mb-1">
-              Correo
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={onChange}
-              className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              required
-            />
-          </div>
+          <form onSubmit={handleSubmit}>
+            {mode === "register" && (
+              <div className="mb-3">
+                <label className="form-label small">Nombre</label>
+                <input
+                  name="displayName"
+                  value={form.displayName}
+                  onChange={onChange}
+                  className="form-control form-control-sm"
+                />
+              </div>
+            )}
 
-          {mode !== "reset" && (
-            <div>
-              <label className="block text-xs font-medium text-slate-700 mb-1">
-                Contraseña
-              </label>
+            <div className="mb-3">
+              <label className="form-label small">Correo</label>
               <input
-                type="password"
-                name="password"
-                value={form.password}
+                type="email"
+                name="email"
+                value={form.email}
                 onChange={onChange}
-                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="form-control form-control-sm"
                 required
               />
             </div>
-          )}
+
+            {mode !== "reset" && (
+              <div className="mb-3">
+                <label className="form-label small">Contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={form.password}
+                  onChange={onChange}
+                  className="form-control form-control-sm"
+                  required
+                />
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="btn btn-primary w-100"
+            >
+              {submitting
+                ? "Procesando..."
+                : mode === "login"
+                  ? "Entrar"
+                  : mode === "register"
+                    ? "Crear cuenta"
+                    : "Enviar enlace de recuperación"}
+            </button>
+          </form>
 
           <button
-            type="submit"
+            type="button"
             disabled={submitting}
-            className="w-full py-2.5 rounded-md bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 disabled:opacity-60"
+            onClick={handleGoogleLogin}
+            className="btn btn-outline-secondary w-100 mt-3 d-flex align-items-center justify-content-center gap-2"
           >
-            {submitting
-              ? "Procesando…"
-              : mode === "login"
-                ? "Entrar"
-                : mode === "register"
-                  ? "Crear cuenta"
-                  : "Enviar enlace de recuperación"}
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="Google"
+              style={{ width: "20px", height: "20px" }}
+            />
+            Iniciar sesión con Google
           </button>
-        </form>
 
-        <button
-          type="button"
-          disabled={submitting}
-          onClick={handleGoogleLogin}
-          className="w-full py-2.5 rounded-md border border-slate-300 mt-4 flex items-center justify-center gap-2 text-sm text-slate-700 hover:bg-slate-50 disabled:opacity-60"
-        >
-          <img
-            src="https://www.svgrepo.com/show/475656/google-color.svg"
-            alt="Google"
-            className="w-5 h-5"
-          />
-          Iniciar sesión con Google
-        </button>
+        </div>
       </div>
     </div>
-  );
+     );
 }

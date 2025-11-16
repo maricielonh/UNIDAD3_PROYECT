@@ -16,7 +16,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Nosotras() {
     return (
-        <>
+        < >
 
             <div className="NOSObody">
 
@@ -78,6 +78,7 @@ export default function Nosotras() {
                 </div>
 
                 <div className="row mb-4 text-center justify-content-center">
+                    
 
 
                     {/* Persona 1 */}
@@ -200,6 +201,11 @@ export default function Nosotras() {
                         <h5 className="NOSOfrase">"Tu visión. Nuestro stack. Un solo equipo."</h5>
                     </div>
                 </div>
+
+
+
+
+                
             </div >
         </>
     );
