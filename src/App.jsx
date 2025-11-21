@@ -6,6 +6,8 @@ import Contacto from "./Contacto";
 import Login from "./pages/Login";
 import { AuthProvider } from "./auth/AuthProvider";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./auth/ProtectedRoute";
+
 
 function App() {
   return (
@@ -22,7 +24,15 @@ function App() {
           <Route path="/Nosotras" element={<Nosotras />} />
           <Route path="/Valores" element={<Valores />} />
           <Route path="/Contacto" element={<Contacto />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          
 
         </Routes>
       </AuthProvider>

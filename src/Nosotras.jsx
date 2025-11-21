@@ -16,7 +16,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Nosotras() {
     return (
-        < >
+        <>
 
             <div className="NOSObody">
 
