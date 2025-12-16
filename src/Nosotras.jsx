@@ -1,20 +1,23 @@
+//Importa tus imágenes desde la carpeta src/assets/
 
-// Importa tus imágenes desde la carpeta src/assets/
+
+
+import LOGO from "./assets/LOGO.jpg";
 import MARICIELO from "./assets/MARICIELO.png";
 import ALEJANDRA from "./assets/ALEJANDRA.jpg";
 import NAYELI from "./assets/NAYELI.jpg";
-import ALESSANDRA from "./assets/ALESSANDRA.jpg";
 import ADRIANA from "./assets/ADRIANA.jpg";
-import LOGO from "./assets/LOGO.jpg";
 import './ALEJANDRA1.css';
 import { Link } from "react-router-dom";
 import Quiz from "./Quiz";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { useEquipo } from "./hooks/useEquipo";
 
 
 
 export default function Nosotras() {
+    const { equipo, loading } = useEquipo();
     return (
         <>
 
@@ -43,6 +46,11 @@ export default function Nosotras() {
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/Contacto">CONTACTO</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/publicidad">
+                                                PUBLICIDAD
+                                            </Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/Login">Dashboard</Link>
@@ -78,7 +86,7 @@ export default function Nosotras() {
                 </div>
 
                 <div className="row mb-4 text-center justify-content-center">
-                    
+
 
 
                     {/* Persona 1 */}
@@ -114,7 +122,7 @@ export default function Nosotras() {
                         <div className="NOSOcard shadow">
                             <img src={NAYELI} className="card-img-top NOSOperson-img" alt="Nayeli Zelaya" />
                             <div className="card-body">
-                                <h4>Nayeli Zelaya</h4>
+                                <h4>Shanty Kiran Valdez Cerna</h4>
                                 <h5 className="card-title">DESARROLLADORA AUTODIDACTA</h5>
                                 <p className="card-text">
                                     Mi Path: Soy estudiante de secundaria con una gran pasión por la tecnología y la programación. Aprendo por mi cuenta, explorando nuevas herramientas y creando proyectos que convierten mis ideas en soluciones reales. Especialidades: Visual Studio Code, Git, MySQL, Canva Capacidad: Aprender rápido, adaptarme a nuevos desafíos y transformar ideas en proyectos funcionales con un toque creativo.
@@ -123,26 +131,15 @@ export default function Nosotras() {
                         </div>
                     </div>
 
-                    {/* Persona 4 */}
-                    <div className="col-auto">
-                        <div className="NOSOcard shadow">
-                            <img src={ALESSANDRA} className="card-img-top NOSOperson-img" alt="Alessandra Mateo" />
-                            <div className="card-body">
-                                <h4>Alessandra Mateo</h4>
-                                <h5 className="card-title">CREATIVIDAD E INNOVACIÓN</h5>
-                                <p className="card-text">
-                                    Mi Path: Estoy estudiando Comunicación y Publicidad, donde descubrí mi pasión por la creatividad a la tecnología. Me enamora cómo la publicidad puede conectar con las emociones y al mismo tiempo aprovechar herramientas digitales para innovar en la manera de comunicar ideas y mensajes de forma impactante. Herramientas digitales: Canva, Illustrator, Photoshop, Trello Capacidad: Detectar oportunidades creativas en cualquier situación y transformarlas en propuestas innovadoras que combinan estrategia y tecnología.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                    {/* Persona 5 */}
+
+
+                    {/* Persona 4 */}
                     <div className="col-auto">
                         <div className="NOSOcard shadow">
                             <img src={ADRIANA} className="card-img-top NOSOperson-img" alt="Adriana Santana" />
                             <div className="card-body">
-                                <h4>Adriana Santana</h4>
+                                <h4>Fiorella Fabiana Cutipa Rios</h4>
                                 <h5 className="card-title">REDACTORA DE CONTENIDO WEB</h5>
                                 <p className="card-text">
                                     My Path:Mientras estudiaba y me tocaba hacer muchos trabajos de investigación. Descubrí que lo que más disfrutaba no era recopilar información, sino encontrar la forma más clara y atractiva de presentarla.Con el tiempo, esa curiosidad se convirtió en una pasión profesional. Herramientas preferidas:Grammarly, Google Docs, WordPress, Ahrefs y Ubersuggest. Capacidad:La adaptabilidad: sé cómo ajustar el tono, estilo y enfoque del contenido según el público, el medio y el objetivo de cada proyecto.
@@ -151,6 +148,45 @@ export default function Nosotras() {
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+                {/* NUEVAS INTEGRANTES (DESDE DASHBOARD) */}
+                <div className="container-hijo mt-5 mb-5">
+                    <h2 className="text-center NOSOletra">
+                        Integrantes del Equipo
+                    </h2>
+                </div>
+
+                <div className="row mb-4 text-center justify-content-center">
+                    {loading && <p>Cargando integrantes...</p>}
+
+                    {!loading && equipo.length === 0 && (
+                        <p>Aún no hay integrantes registradas.</p>
+                    )}
+
+                    {!loading &&
+                        equipo.map((persona) => (
+                            <div className="col-auto" key={persona.id}>
+                                <div className="NOSOcard shadow">
+                                    <img
+                                        src={persona.imagen}
+                                        className="card-img-top NOSOperson-img"
+                                        alt={persona.nombre}
+                                    />
+                                    <div className="card-body">
+                                        <h4>{persona.nombre}</h4>
+                                        <h5 className="card-title">{persona.rol}</h5>
+                                        <p className="card-text">{persona.descripcion}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                </div>
+
+
 
                 {/* Metodologías */}
                 <div className="NOSOcontainer seccion text-center">
@@ -205,7 +241,7 @@ export default function Nosotras() {
 
 
 
-                
+
             </div >
         </>
     );

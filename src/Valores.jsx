@@ -40,7 +40,12 @@ export default function Valores() {
                     <Link className="nav-link" to="/Contacto">CONTACTO</Link>
                   </li>
                   <li className="nav-item">
-                      <Link className="nav-link" to="/Login">Dashboard</Link>
+                    <Link className="nav-link" to="/publicidad">
+                      PUBLICIDAD
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/Login">Dashboard</Link>
                   </li>
                 </ul>
               </div>

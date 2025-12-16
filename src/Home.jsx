@@ -43,6 +43,11 @@ export default function Home() {
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/Contacto">CONTACTO</Link>
                                         </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/publicidad">
+                                                PUBLICIDAD
+                                            </Link>
+                                        </li>
 
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/Login">Dashboard</Link>
@@ -154,7 +159,7 @@ export default function Home() {
                         <div className="col-md-4">
                             <div className="card h-100 shadow-sm bode">
                                 <div className="card-body text-center cartilla rounded-5">
-                                    <h5 className="card-title">Nayeli Zelaya Calderon / DESARROLLADORA AUTODIDACTA
+                                    <h5 className="card-title">Shanty Kiran Valdez Cerna / DESARROLLADORA AUTODIDACTA
 
                                     </h5>
                                     <p className="card-text">
@@ -169,25 +174,11 @@ export default function Home() {
                             </div>
 
                         </div>
-                        <div className="col-md-4">
-                            <div className="card h-100 shadow-sm bode">
-                                <div className="card-body text-center cartilla rounded-5">
-                                    <h5 className="card-title">Alessandra Mateo Céspedes/Creatividad e Innovación IA</h5>
-                                    <p className="card-text">
-                                        Me apasiona explorar el potencial de la Inteligencia Artificial para impulsar la
-                                        creatividad y la innovación.
-                                        Mi trabajo se centra en diseñar soluciones que combinen tecnología, diseño y experiencia
-                                        de usuario, aprovechando la IA como herramienta para generar ideas, optimizar procesos y
-                                        crear productos digitales únicos.
-                                    </p>
-                                </div>
-                            </div>
 
-                        </div>
                         <div className="col-md-4">
                             <div className="card h-100 shadow-sm bode">
                                 <div className="card-body text-center cartilla rounded-5">
-                                    <h5 className="card-title">Adriana Santana/ Copywriter y redactora de contenidos web.
+                                    <h5 className="card-title">Fiorella Fabiana Cutipa Rios/ Copywriter y redactora de contenidos web.
                                     </h5>
                                     <p className="card-text">
                                         Me apasiona transformar ideas en mensajes claros, creativos y persuasivos.

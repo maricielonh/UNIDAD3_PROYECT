@@ -1,14 +1,12 @@
 // src/pages/Dashboard.jsx
 import { useState } from "react";
 import { useAuth } from "../auth/AuthProvider";
-import { useCourses } from "../hooks/useCourses";
-
+import { useEquipo } from "../hooks/useEquipo";
 import {
-  createCourse,
-  updateCourse,
-  deleteCourseById,
-} from "../services/courseService";
-
+  createIntegrante,
+  updateIntegrante,
+  deleteIntegrante,
+} from "../services/equipoService";
 import { Link } from "react-router-dom";
 import "../MARICIELO.css";
 
@@ -18,90 +16,79 @@ export default function Dashboard() {
     return <div className="p-3">Cargando usuario…</div>;
   }
 
-
   const [nombre, setNombre] = useState("");
+  const [rol, setRol] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [precio, setPrecio] = useState("");
-  const [nivel, setNivel] = useState("Básico");
+  const [imagen, setImagen] = useState("");
 
   const [editingId, setEditingId] = useState(null);
-  const [filtroNivel, setFiltroNivel] = useState("Todos");
 
-  const { cursos, loadingCursos } = useCourses(user?.uid);
+
+  const { equipo, loading } = useEquipo(user.uid);
 
   const resetForm = () => {
     setNombre("");
+    setRol("");
     setDescripcion("");
-    setPrecio("");
-    setNivel("Básico");
+    setImagen("");
     setEditingId(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!nombre.trim() || !descripcion.trim() || !precio) {
-      alert("Todos los campos son obligatorios.");
+    if (!nombre || !rol || !descripcion || !imagen) {
+      alert("Todos los campos son obligatorios");
       return;
     }
 
     try {
-      const precioNumber = Number(precio);
-
-      if (isNaN(precioNumber)) {
-        alert("El precio debe ser numérico.");
-        return;
-      }
-
       if (editingId) {
-        await updateCourse(editingId, {
+        await updateIntegrante(editingId, {
           nombre,
+          rol,
           descripcion,
-          precio: precioNumber,
-          nivel,
+          imagen,
         });
       } else {
-        await createCourse(user.uid, {
+        await createIntegrante(user.uid, {
           nombre,
+          rol,
           descripcion,
-          precio: precioNumber,
-          nivel,
+          imagen,
         });
       }
 
       resetForm();
     } catch (error) {
-      console.error("Error al guardar curso:", error);
-      alert("Ocurrió un error al guardar el curso.");
+      console.error(error);
+      alert("Error al guardar integrante");
     }
   };
 
-  const handleEdit = (curso) => {
-    setNombre(curso.nombre);
-    setDescripcion(curso.descripcion);
-    setPrecio(curso.precio);
-    setNivel(curso.nivel || "Básico");
-    setEditingId(curso.id);
+  const handleEdit = (persona) => {
+    setNombre(persona.nombre);
+    setRol(persona.rol);
+    setDescripcion(persona.descripcion);
+    setImagen(persona.imagen);
+    setEditingId(persona.id);
   };
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
-      "¿Seguro que deseas eliminar este curso?"
+      "¿Seguro que deseas eliminar esta integrante?"
     );
     if (!confirmDelete) return;
 
     try {
-      await deleteCourseById(id);
+      await deleteIntegrante(id);
     } catch (error) {
-      console.error("Error al eliminar curso:", error);
-      alert("Ocurrió un error al eliminar el curso.");
+      console.error(error);
+      alert("Error al eliminar integrante");
     }
   };
 
-  const cursosFiltrados =
-    filtroNivel === "Todos"
-      ? cursos
-      : cursos.filter((c) => c.nivel === filtroNivel);
+
 
   return (
     <>
@@ -132,6 +119,11 @@ export default function Dashboard() {
                       <Link className="nav-link" to="/Contacto">CONTACTO</Link>
                     </li>
                     <li className="nav-item">
+                      <Link className="nav-link" to="/publicidad">
+                        PUBLICIDAD
+                      </Link>
+                    </li>
+                    <li className="nav-item">
                       <Link className="nav-link" to="/Login">Dashboard</Link>
                     </li>
                   </ul>
@@ -143,7 +135,7 @@ export default function Dashboard() {
 
         {/* Encabezado */}
         <div className="mb-4">
-          <h1 className="fw-bold">Dashboard – Gestión de cursos</h1>
+          <h1 className="fw-bold">Dashboard – Gestión de Nosotras</h1>
           <p className="text-muted">
             Sesión iniciada como{" "}
             <span className="fw-semibold">
@@ -161,19 +153,29 @@ export default function Dashboard() {
             <div className="card shadow-sm">
               <div className="card-body">
                 <h5 className="card-title">
-                  {editingId ? "Editar curso" : "Nuevo curso"}
+                  {editingId ? "Editar integrante" : "Nueva integrante"}
                 </h5>
 
                 <form onSubmit={handleSubmit}>
 
                   <div className="mb-3">
-                    <label className="form-label">Nombre del curso</label>
+                    <label className="form-label">Nombre de la Integrante</label>
                     <input
                       type="text"
                       className="form-control"
                       value={nombre}
                       onChange={(e) => setNombre(e.target.value)}
-                      placeholder="Ej. Fundamentos de Ciencia de Datos"
+                      placeholder="Ej. Maricielo Narro"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label">Rol</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={rol}
+                      onChange={(e) => setRol(e.target.value)}
+                      placeholder="Ej. Desarrolladora Frontend"
                     />
                   </div>
 
@@ -184,37 +186,21 @@ export default function Dashboard() {
                       rows={3}
                       value={descripcion}
                       onChange={(e) => setDescripcion(e.target.value)}
-                      placeholder="Describe brevemente el contenido del curso"
+                      placeholder="Describe brevemente su perfil"
                     />
                   </div>
 
-                  <div className="row">
-                    <div className="col-sm-6 mb-3">
-                      <label className="form-label">Precio (MXN)</label>
-                      <input
-                        type="number"
-                        className="form-control"
-                        min="0"
-                        step="0.01"
-                        value={precio}
-                        onChange={(e) => setPrecio(e.target.value)}
-                        placeholder="Ej. 1990"
-                      />
-                    </div>
-
-                    <div className="col-sm-6 mb-3">
-                      <label className="form-label">Nivel</label>
-                      <select
-                        className="form-select"
-                        value={nivel}
-                        onChange={(e) => setNivel(e.target.value)}
-                      >
-                        <option value="Básico">Básico</option>
-                        <option value="Intermedio">Intermedio</option>
-                        <option value="Avanzado">Avanzado</option>
-                      </select>
-                    </div>
+                  <div className="mb-3">
+                    <label className="form-label">Imagen (URL)</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={imagen}
+                      onChange={(e) => setImagen(e.target.value)}
+                      placeholder="https://..."
+                    />
                   </div>
+
 
                   <button type="submit" className="btn btn-primary me-2">
                     {editingId ? "Actualizar" : "Guardar"}
@@ -239,70 +225,49 @@ export default function Dashboard() {
             <div className="card shadow-sm">
               <div className="card-body">
 
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                  <div>
-                    <h5 className="card-title">Mis cursos</h5>
-                  </div>
 
-                  <div>
-                    <label className="form-label small">Filtrar por nivel</label>
-                    <select
-                      className="form-select form-select-sm"
-                      value={filtroNivel}
-                      onChange={(e) => setFiltroNivel(e.target.value)}
-                    >
-                      <option value="Todos">Todos</option>
-                      <option value="Básico">Básico</option>
-                      <option value="Intermedio">Intermedio</option>
-                      <option value="Avanzado">Avanzado</option>
-                    </select>
-                  </div>
-                </div>
 
-                {loadingCursos ? (
-                  <p className="text-muted">Cargando cursos…</p>
-                ) : cursosFiltrados.length === 0 ? (
-                  <p className="text-muted">
-                    Aún no tienes cursos registrados.
-                  </p>
+                {loading ? (
+                  <p className="text-muted">Cargando integrantes…</p>
+                ) : equipo.length === 0 ? (
+                  <p className="text-muted">Aún no hay integrantes registradas.</p>
                 ) : (
                   <div className="list-group">
 
-                    {cursosFiltrados.map((curso) => (
+                    {equipo.map((persona) => (
                       <div
-                        key={curso.id}
+                        key={persona.id}
                         className="list-group-item d-flex justify-content-between align-items-start"
                       >
-                        <div>
-                          <h6 className="fw-bold">{curso.nombre}</h6>
-                          <p className="mb-1 small text-muted">
-                            {curso.descripcion}
-                          </p>
 
-                          <span className="badge bg-primary me-2">
-                            Nivel: {curso.nivel}
-                          </span>
+                        <img
+                          src={persona.imagen}
+                          alt={persona.nombre}
+                          style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "50%" }}
+                        />
 
-                          <span className="badge bg-success">
-                            Precio: ${curso.precio}
-                          </span>
+                        <div className="flex-grow-1">
+                          <h6 className="fw-bold">{persona.nombre}</h6>
+                          <p className="mb-1 text-muted">{persona.rol}</p>
+                          <p className="small">{persona.descripcion}</p>
                         </div>
 
-                        <div className="ms-3 d-flex flex-column gap-2">
+                        <div className="d-flex flex-column gap-2">
                           <button
-                            onClick={() => handleEdit(curso)}
+                            onClick={() => handleEdit(persona)}
                             className="btn btn-warning btn-sm"
                           >
                             Editar
                           </button>
 
                           <button
-                            onClick={() => handleDelete(curso.id)}
+                            onClick={() => handleDelete(persona.id)}
                             className="btn btn-danger btn-sm"
                           >
                             Eliminar
                           </button>
                         </div>
+
                       </div>
                     ))}
 

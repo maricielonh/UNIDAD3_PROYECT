@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./auth/AuthProvider";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import Publicidad from "./pages/Publicidad";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Nosotras" element={<Nosotras />} />
           <Route path="/Valores" element={<Valores />} />
           <Route path="/Contacto" element={<Contacto />} />
+          <Route path="/publicidad" element={<Publicidad />} />
           <Route
             path="/dashboard"
             element={

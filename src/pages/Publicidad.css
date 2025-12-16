@@ -1,0 +1,84 @@
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffe6f0;
+            color: #333;
+            margin: 0;
+            text-align: center;
+        }
+        header {
+            color: white;
+        }
+        .banner {
+            width: 100%;
+            height: 420px;
+            background-image:
+              linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+              url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1171&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .propuesta-valor {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        }
+        .propuesta-valor h2 {
+            color: #ff1493;
+            font-size: 2.5em;
+        }
+        .propuesta-valor p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: auto;
+        }
+        .imagenes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .imagenes img {
+            width: 220px;
+            height: 220px;
+            border-radius: 15px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+        .tarjetas {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .tarjeta {
+            background: white;
+            width: 280px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        }
+        .tarjeta h3 {
+            color: #ff1493;
+            font-size: 1.6em;
+        }
+        .tarjeta p {
+            font-size: 1.05em;
+        }
+        footer {
+            background-color: #ff1493;
+            color: white;
+            padding: 35px 20px;
+        }
+        .copyright {
+            background-color: #e0007a;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+ 
