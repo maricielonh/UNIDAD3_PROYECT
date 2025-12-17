@@ -7,10 +7,11 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Publicidad from "./pages/Publicidad";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <Routes>
+    <HashRouter>
       {/* Redirige raíz al Home */}
       <Route path="/" element={<Navigate to="/Home" />} />
 
@@ -31,7 +32,7 @@ function App() {
           </ProtectedRoute>
         }
       />
-    </Routes>
+    </HashRouter>
   );
 }
 

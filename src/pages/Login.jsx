@@ -33,7 +33,7 @@ export default function Login() {
 
     try {
       if (mode === "login") {
-        await login({ email: form.email, password: form.password });
+        await login(form.email, form.password);
         navigate("/dashboard");
       } else if (mode === "register") {
         await register({

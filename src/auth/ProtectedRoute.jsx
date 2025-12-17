@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "./AuthProvider";
+import { useAuth } from "../context/AuthContext"; // ✅ RUTA CORRECTA
 
 export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();

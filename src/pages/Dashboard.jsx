@@ -1,6 +1,6 @@
 // src/pages/Dashboard.jsx
 import { useState } from "react";
-import { useAuth } from "../auth/AuthProvider";
+import { useAuth } from "../context/AuthContext";
 import { useEquipo } from "../hooks/useEquipo";
 import {
   createIntegrante,
