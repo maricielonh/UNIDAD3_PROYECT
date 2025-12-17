@@ -1,7 +1,7 @@
 // src/pages/Login.jsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/AuthProvider";
+import { useAuth } from "../context/AuthContext";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -34,14 +34,14 @@ export default function Login() {
     try {
       if (mode === "login") {
         await login({ email: form.email, password: form.password });
-        navigate("/Dashboard");
+        navigate("/dashboard");
       } else if (mode === "register") {
         await register({
           email: form.email,
           password: form.password,
           displayName: form.displayName,
         });
-        navigate("/Dashboard");
+        navigate("/dashboard");
       } else if (mode === "reset") {
         await resetPassword(form.email);
         alert("Se ha enviado un correo para restablecer tu contraseña.");
@@ -73,7 +73,7 @@ export default function Login() {
     setSubmitting(true);
     try {
       await loginWithGoogle();
-      navigate("/Dashboard");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       setError("No se pudo iniciar sesión con Google.");
@@ -115,7 +115,7 @@ export default function Login() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/Login">Dashboard</Link>
+                    <Link className="nav-link" to="/login">Dashboard</Link>
                   </li>
                 </ul>
               </div>
