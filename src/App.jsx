@@ -11,7 +11,7 @@ import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <HashRouter>
+    <Routes>
       {/* Redirige raíz al Home */}
       <Route path="/" element={<Navigate to="/Home" />} />
 
@@ -32,7 +32,7 @@ function App() {
           </ProtectedRoute>
         }
       />
-    </HashRouter>
+    </Routes>
   );
 }
 

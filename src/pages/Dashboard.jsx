@@ -8,6 +8,7 @@ import {
   deleteIntegrante,
 } from "../services/equipoService";
 import { Link } from "react-router-dom";
+
 import "../MARICIELO.css";
 
 export default function Dashboard() {
